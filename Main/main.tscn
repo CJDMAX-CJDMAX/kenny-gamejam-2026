@@ -13,12 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://btepyeppg3v2x" path="res://art/assets/Sprites/Tiles/Default/terrain_dirt_block_top.png" id="11_wbdht"]
 [ext_resource type="Texture2D" uid="uid://ecoyud17onjb" path="res://art/assets/Sprites/Tiles/Default/terrain_dirt_block_top_left.png" id="12_puekb"]
 [ext_resource type="Texture2D" uid="uid://e552700epapk" path="res://art/Others/button_square_depth_flat.png" id="13_rix8b"]
-[ext_resource type="Texture2D" uid="uid://dihi186i4g8v6" path="res://art/assets/Sprites/Tiles/Default/block_blue.png" id="14_0gq1e"]
+[ext_resource type="Texture2D" uid="uid://2w13jsbjnx2p" path="res://art/Others/button_round_depth_border.png" id="14_uhr2j"]
 [ext_resource type="PackedScene" uid="uid://d1i6o4ylwnocj" path="res://Main/objects.tscn" id="14_wbdht"]
-[ext_resource type="Texture2D" uid="uid://csog5sjkh4fat" path="res://art/assets/Sprites/Tiles/Default/block_coin_active.png" id="15_wbdht"]
-[ext_resource type="Texture2D" uid="uid://cdw00xsdtoug3" path="res://art/assets/Sprites/Tiles/Default/block_exclamation_active.png" id="16_puekb"]
-[ext_resource type="Texture2D" uid="uid://cnw4qhkj4b60t" path="res://art/assets/Sprites/Tiles/Default/block_exclamation.png" id="17_xi84t"]
-[ext_resource type="Texture2D" uid="uid://cmb3amq14kk0t" path="res://art/assets/Sprites/Tiles/Default/block_empty.png" id="18_j4inf"]
+[ext_resource type="Texture2D" uid="uid://c8opcx5fl6qv0" path="res://art/Others/button_square_depth_flat (2).png" id="15_l5bfp"]
+[ext_resource type="Script" uid="uid://b76ptibdivwe7" path="res://Main/Others/area_2d.gd" id="17_guo5i"]
 
 [sub_resource type="Animation" id="Animation_qvhan"]
 length = 0.001
@@ -60,6 +58,12 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhfj1"]
 size = Vector2(193, 639.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7dn7"]
+size = Vector2(418, 612)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bugy5"]
+size = Vector2(191, 458)
 
 [node name="Main" type="Node2D" unique_id=746216825]
 
@@ -170,7 +174,7 @@ autoplay = &"background_move"
 [node name="Scale" type="Node2D" parent="." unique_id=681985498]
 
 [node name="Player_Scale" type="RigidBody2D" parent="Scale" unique_id=289537158]
-position = Vector2(700, 400)
+position = Vector2(768, 400)
 lock_rotation = true
 freeze = true
 
@@ -298,167 +302,236 @@ texture = ExtResource("12_puekb")
 position = Vector2(-289, 384)
 shape = SubResource("RectangleShape2D_uhfj1")
 
-[node name="enemy_scale" type="Node2D" parent="Scale" unique_id=851755824]
-position = Vector2(452, 550)
-scale = Vector2(-1, 1)
-
-[node name="TerrainDirtBlockBottomRight" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1586706305]
-position = Vector2(-224, 672)
-texture = ExtResource("4_f3gf5")
-
-[node name="TerrainDirtBlockBottomLeft" type="Sprite2D" parent="Scale/enemy_scale" unique_id=203923802]
-position = Vector2(-352, 672)
-texture = ExtResource("5_rix8b")
-
-[node name="TerrainDirtBlockRight" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1656993663]
-position = Vector2(-224, 608)
-texture = ExtResource("6_0jx5h")
-
-[node name="TerrainDirtBlockRight2" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1817458484]
-position = Vector2(-224, 544)
-texture = ExtResource("6_0jx5h")
-
-[node name="TerrainDirtBlockRight3" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1225601049]
-position = Vector2(-224, 480)
-texture = ExtResource("6_0jx5h")
-
-[node name="TerrainDirtBlockRight4" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1189009070]
-position = Vector2(-224, 416)
-texture = ExtResource("6_0jx5h")
-
-[node name="TerrainDirtBlockRight5" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1409806989]
-position = Vector2(-224, 352)
-texture = ExtResource("6_0jx5h")
-
-[node name="TerrainDirtBlockRight6" type="Sprite2D" parent="Scale/enemy_scale" unique_id=180179403]
-position = Vector2(-224, 288)
-texture = ExtResource("6_0jx5h")
-
-[node name="TerrainDirtBlockRight7" type="Sprite2D" parent="Scale/enemy_scale" unique_id=967724548]
-position = Vector2(-224, 224)
-texture = ExtResource("6_0jx5h")
-
-[node name="TerrainDirtBlockRight8" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1108056369]
-position = Vector2(-224, 160)
-texture = ExtResource("6_0jx5h")
-
-[node name="TerrainDirtBlockTopRight" type="Sprite2D" parent="Scale/enemy_scale" unique_id=208463000]
-position = Vector2(-224, 96)
-texture = ExtResource("7_uhr2j")
-
-[node name="TerrainDirtBlockBottom" type="Sprite2D" parent="Scale/enemy_scale" unique_id=827680741]
-position = Vector2(-288, 672)
-texture = ExtResource("8_l5bfp")
-
-[node name="TerrainDirtBlockCenter" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1596469776]
-position = Vector2(-288, 608)
-texture = ExtResource("9_guo5i")
-
-[node name="TerrainDirtBlockCenter2" type="Sprite2D" parent="Scale/enemy_scale" unique_id=425107565]
-position = Vector2(-288, 480)
-texture = ExtResource("9_guo5i")
-
-[node name="TerrainDirtBlockCenter3" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1114448748]
-position = Vector2(-288, 544)
-texture = ExtResource("9_guo5i")
-
-[node name="TerrainDirtBlockCenter4" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1068312039]
-position = Vector2(-288, 416)
-texture = ExtResource("9_guo5i")
-
-[node name="TerrainDirtBlockCenter5" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1233322179]
-position = Vector2(-288, 288)
-texture = ExtResource("9_guo5i")
-
-[node name="TerrainDirtBlockCenter6" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1259468852]
-position = Vector2(-288, 352)
-texture = ExtResource("9_guo5i")
-
-[node name="TerrainDirtBlockCenter7" type="Sprite2D" parent="Scale/enemy_scale" unique_id=2077763609]
-position = Vector2(-288, 160)
-texture = ExtResource("9_guo5i")
-
-[node name="TerrainDirtBlockCenter8" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1781123293]
-position = Vector2(-288, 224)
-texture = ExtResource("9_guo5i")
-
-[node name="TerrainDirtBlockLeft" type="Sprite2D" parent="Scale/enemy_scale" unique_id=131189301]
-position = Vector2(-352, 608)
-texture = ExtResource("10_0gq1e")
-
-[node name="TerrainDirtBlockLeft2" type="Sprite2D" parent="Scale/enemy_scale" unique_id=162793183]
-position = Vector2(-352, 544)
-texture = ExtResource("10_0gq1e")
-
-[node name="TerrainDirtBlockLeft3" type="Sprite2D" parent="Scale/enemy_scale" unique_id=691937902]
-position = Vector2(-352, 480)
-texture = ExtResource("10_0gq1e")
-
-[node name="TerrainDirtBlockLeft4" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1176983899]
-position = Vector2(-352, 416)
-texture = ExtResource("10_0gq1e")
-
-[node name="TerrainDirtBlockLeft5" type="Sprite2D" parent="Scale/enemy_scale" unique_id=201894007]
-position = Vector2(-352, 352)
-texture = ExtResource("10_0gq1e")
-
-[node name="TerrainDirtBlockLeft6" type="Sprite2D" parent="Scale/enemy_scale" unique_id=922620545]
-position = Vector2(-352, 288)
-texture = ExtResource("10_0gq1e")
-
-[node name="TerrainDirtBlockLeft7" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1541825438]
-position = Vector2(-352, 224)
-texture = ExtResource("10_0gq1e")
-
-[node name="TerrainDirtBlockLeft8" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1558887572]
-position = Vector2(-352, 160)
-texture = ExtResource("10_0gq1e")
-
-[node name="TerrainDirtBlockTop" type="Sprite2D" parent="Scale/enemy_scale" unique_id=804080712]
-position = Vector2(-288, 96)
-texture = ExtResource("11_wbdht")
-
-[node name="TerrainDirtBlockTopLeft" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1192712196]
-position = Vector2(-352, 96)
-texture = ExtResource("12_puekb")
-
 [node name="Ui" type="Node2D" parent="." unique_id=225842226]
 
-[node name="ButtonSquareFlat" type="Sprite2D" parent="Ui" unique_id=1253284623]
+[node name="goat" type="Sprite2D" parent="Ui" unique_id=1253284623]
 position = Vector2(80.00001, 80.00001)
 rotation = -0.17453292
 texture = ExtResource("13_rix8b")
 
-[node name="Label" type="Label" parent="Ui/ButtonSquareFlat" unique_id=1129550186]
+[node name="Label" type="Label" parent="Ui/goat" unique_id=1129550186]
 offset_left = -40.0
 offset_top = -48.0
 offset_right = 66.0
 offset_bottom = 48.0
 theme_override_constants/outline_size = 7
 theme_override_font_sizes/font_size = 64
-text = "5"
+text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Objects" parent="Ui" unique_id=1304267699 instance=ExtResource("14_wbdht")]
-position = Vector2(408, 232)
+[node name="lock" type="Sprite2D" parent="Ui" unique_id=1989754729]
+position = Vector2(72, 205)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("14_uhr2j")
 
-[node name="BlockBlue" type="Sprite2D" parent="." unique_id=1126551616]
-position = Vector2(208, 72)
-texture = ExtResource("14_0gq1e")
+[node name="Label" type="Label" parent="Ui/lock" unique_id=340789829]
+offset_left = -18.571434
+offset_top = -51.428585
+offset_right = 43.0
+offset_bottom = 44.28568
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 64
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="BlockCoinActive" type="Sprite2D" parent="." unique_id=288416740]
-position = Vector2(296, 72)
-texture = ExtResource("15_wbdht")
+[node name="goat1" type="Sprite2D" parent="Ui" unique_id=2046985709]
+position = Vector2(68, 310)
+rotation = 0.2617994
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("15_l5bfp")
 
-[node name="BlockExclamationActive" type="Sprite2D" parent="." unique_id=1951340820]
-position = Vector2(376, 72)
-texture = ExtResource("16_puekb")
+[node name="Label2" type="Label" parent="Ui/goat1" unique_id=1503500722]
+offset_left = -35.714287
+offset_top = -55.714333
+offset_right = 55.71428
+offset_bottom = 48.571404
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="BlockExclamation" type="Sprite2D" parent="." unique_id=113520395]
-position = Vector2(448, 72)
-texture = ExtResource("17_xi84t")
+[node name="Objects" type="Node2D" parent="." unique_id=1623290232]
 
-[node name="BlockEmpty" type="Sprite2D" parent="." unique_id=606014324]
-position = Vector2(520, 72)
-texture = ExtResource("18_j4inf")
+[node name="Objects" parent="Objects" unique_id=1304267699 node_paths=PackedStringArray("marker_object") instance=ExtResource("14_wbdht")]
+position = Vector2(750, 60)
+marker_object = NodePath("../all_markers/Marker2D")
+
+[node name="Objects2" parent="Objects" unique_id=523393070 node_paths=PackedStringArray("marker_object") instance=ExtResource("14_wbdht")]
+position = Vector2(820, 60)
+type = 1
+marker_object = NodePath("../all_markers/Marker2D2")
+
+[node name="Objects3" parent="Objects" unique_id=1464178523 node_paths=PackedStringArray("marker_object") instance=ExtResource("14_wbdht")]
+position = Vector2(820, 60)
+type = 2
+marker_object = NodePath("../all_markers/Marker2D3")
+
+[node name="Area2D" type="Area2D" parent="Objects" unique_id=643345649]
+position = Vector2(913, 384)
+script = ExtResource("17_guo5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Area2D" unique_id=1378510854]
+position = Vector2(9, -58)
+shape = SubResource("RectangleShape2D_d7dn7")
+
+[node name="goat_area" type="Area2D" parent="Objects" unique_id=761480707]
+position = Vector2(462, 410)
+script = ExtResource("17_guo5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/goat_area" unique_id=1060020605]
+position = Vector2(18, -175)
+shape = SubResource("RectangleShape2D_bugy5")
+
+[node name="all_markers" type="Node2D" parent="Objects" unique_id=1649974431]
+
+[node name="Marker2D" type="Marker2D" parent="Objects/all_markers" unique_id=1223020128]
+position = Vector2(750, 60)
+
+[node name="Marker2D2" type="Marker2D" parent="Objects/all_markers" unique_id=1587520335]
+position = Vector2(820, 60)
+
+[node name="Marker2D3" type="Marker2D" parent="Objects/all_markers" unique_id=1684667419]
+position = Vector2(890, 60)
+
+[node name="Marker2D4" type="Marker2D" parent="Objects/all_markers" unique_id=1936023961]
+position = Vector2(960, 60)
+
+[node name="Marker2D5" type="Marker2D" parent="Objects/all_markers" unique_id=1344149061]
+position = Vector2(1030, 60)
+
+[node name="Marker2D6" type="Marker2D" parent="Objects/all_markers" unique_id=1905148595]
+position = Vector2(1100, 60)
+
+[node name="Marker2D7" type="Marker2D" parent="Objects/all_markers" unique_id=1874371188]
+position = Vector2(750, 130)
+
+[node name="Marker2D8" type="Marker2D" parent="Objects/all_markers" unique_id=980996616]
+position = Vector2(820, 130)
+
+[node name="Marker2D9" type="Marker2D" parent="Objects/all_markers" unique_id=1599209409]
+position = Vector2(890, 130)
+
+[node name="Marker2D10" type="Marker2D" parent="Objects/all_markers" unique_id=591693629]
+position = Vector2(960, 130)
+
+[node name="Marker2D11" type="Marker2D" parent="Objects/all_markers" unique_id=907849880]
+position = Vector2(1030, 130)
+
+[node name="Marker2D12" type="Marker2D" parent="Objects/all_markers" unique_id=944930807]
+position = Vector2(1100, 130)
+
+[node name="Marker2D13" type="Marker2D" parent="Objects/all_markers" unique_id=1020629450]
+position = Vector2(750, 200)
+
+[node name="Marker2D14" type="Marker2D" parent="Objects/all_markers" unique_id=1889950672]
+position = Vector2(820, 200)
+
+[node name="Marker2D15" type="Marker2D" parent="Objects/all_markers" unique_id=194958103]
+position = Vector2(890, 200)
+
+[node name="Marker2D16" type="Marker2D" parent="Objects/all_markers" unique_id=1982119983]
+position = Vector2(960, 200)
+
+[node name="Marker2D17" type="Marker2D" parent="Objects/all_markers" unique_id=627413897]
+position = Vector2(1030, 200)
+
+[node name="Marker2D18" type="Marker2D" parent="Objects/all_markers" unique_id=594970919]
+position = Vector2(1100, 200)
+
+[node name="Marker2D19" type="Marker2D" parent="Objects/all_markers" unique_id=365900656]
+position = Vector2(750, 270)
+
+[node name="Marker2D20" type="Marker2D" parent="Objects/all_markers" unique_id=567469264]
+position = Vector2(820, 270)
+
+[node name="Marker2D21" type="Marker2D" parent="Objects/all_markers" unique_id=638206691]
+position = Vector2(890, 270)
+
+[node name="Marker2D22" type="Marker2D" parent="Objects/all_markers" unique_id=297884780]
+position = Vector2(960, 270)
+
+[node name="Marker2D23" type="Marker2D" parent="Objects/all_markers" unique_id=1501584552]
+position = Vector2(1030, 270)
+
+[node name="Marker2D24" type="Marker2D" parent="Objects/all_markers" unique_id=259379943]
+position = Vector2(1100, 270)
+
+[node name="Marker2D25" type="Marker2D" parent="Objects/all_markers" unique_id=645648883]
+position = Vector2(750, 340)
+
+[node name="Marker2D26" type="Marker2D" parent="Objects/all_markers" unique_id=1323902992]
+position = Vector2(820, 340)
+
+[node name="Marker2D27" type="Marker2D" parent="Objects/all_markers" unique_id=179675782]
+position = Vector2(890, 340)
+
+[node name="Marker2D28" type="Marker2D" parent="Objects/all_markers" unique_id=1156462156]
+position = Vector2(960, 340)
+
+[node name="Marker2D29" type="Marker2D" parent="Objects/all_markers" unique_id=1067163931]
+position = Vector2(1030, 340)
+
+[node name="Marker2D30" type="Marker2D" parent="Objects/all_markers" unique_id=485605353]
+position = Vector2(1100, 340)
+
+[node name="Marker2D31" type="Marker2D" parent="Objects/all_markers" unique_id=691700540]
+position = Vector2(750, 410)
+
+[node name="Marker2D32" type="Marker2D" parent="Objects/all_markers" unique_id=1030182299]
+position = Vector2(820, 410)
+
+[node name="Marker2D33" type="Marker2D" parent="Objects/all_markers" unique_id=224040983]
+position = Vector2(890, 410)
+
+[node name="Marker2D34" type="Marker2D" parent="Objects/all_markers" unique_id=339536144]
+position = Vector2(960, 410)
+
+[node name="Marker2D35" type="Marker2D" parent="Objects/all_markers" unique_id=538112986]
+position = Vector2(1030, 410)
+
+[node name="Marker2D36" type="Marker2D" parent="Objects/all_markers" unique_id=2061325860]
+position = Vector2(1100, 410)
+
+[node name="Marker2D37" type="Marker2D" parent="Objects/all_markers" unique_id=1711547982]
+position = Vector2(750, 480)
+
+[node name="Marker2D38" type="Marker2D" parent="Objects/all_markers" unique_id=483821981]
+position = Vector2(820, 480)
+
+[node name="Marker2D39" type="Marker2D" parent="Objects/all_markers" unique_id=668911596]
+position = Vector2(890, 480)
+
+[node name="Marker2D40" type="Marker2D" parent="Objects/all_markers" unique_id=1807238974]
+position = Vector2(960, 480)
+
+[node name="Marker2D41" type="Marker2D" parent="Objects/all_markers" unique_id=521092885]
+position = Vector2(1030, 480)
+
+[node name="Marker2D42" type="Marker2D" parent="Objects/all_markers" unique_id=198295797]
+position = Vector2(1100, 480)
+
+[node name="Marker2D43" type="Marker2D" parent="Objects/all_markers" unique_id=744649885]
+position = Vector2(750, 550)
+
+[node name="Marker2D44" type="Marker2D" parent="Objects/all_markers" unique_id=501789892]
+position = Vector2(820, 550)
+
+[node name="Marker2D45" type="Marker2D" parent="Objects/all_markers" unique_id=173454373]
+position = Vector2(890, 550)
+
+[node name="Marker2D46" type="Marker2D" parent="Objects/all_markers" unique_id=465982177]
+position = Vector2(960, 550)
+
+[node name="Marker2D47" type="Marker2D" parent="Objects/all_markers" unique_id=1124028499]
+position = Vector2(1030, 550)
+
+[node name="Marker2D48" type="Marker2D" parent="Objects/all_markers" unique_id=1057411065]
+position = Vector2(1100, 550)
+
+[connection signal="body_entered" from="Objects/Area2D" to="Objects/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Objects/Area2D" to="Objects/Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Objects/goat_area" to="Objects/goat_area" method="_on_body_entered"]
+[connection signal="body_exited" from="Objects/goat_area" to="Objects/goat_area" method="_on_body_exited"]

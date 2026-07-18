@@ -19,3 +19,14 @@ texture = ExtResource("2_1g4je")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1574915237]
 shape = SubResource("RectangleShape2D_uhfj1")
+
+[node name="Label" type="Label" parent="." unique_id=1955922567]
+visible = false
+z_index = 2
+offset_left = 40.0
+offset_top = -24.0
+offset_right = 339.0
+offset_bottom = 12.0
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 32
+text = "2kg"
