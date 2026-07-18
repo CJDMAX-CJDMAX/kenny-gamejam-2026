@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://pgtu7vjs47p4"]
+
+[ext_resource type="Script" uid="uid://cjb5pwv6pqfsg" path="res://Main/Others/transition.gd" id="1_l1bx6"]
+[ext_resource type="Shader" uid="uid://bkmwjofiv8x7g" path="res://Main/Others/transition.gdshader" id="1_nimjg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ie6ll"]
+shader = ExtResource("1_nimjg")
+shader_parameter/t = 0.615
+shader_parameter/power = 30.0
+shader_parameter/mask_color = Color(0, 0, 0, 1)
+shader_parameter/background_color = Color(0, 0, 0, 0)
+shader_parameter/normal = Vector2(1, -0.11)
+shader_parameter/offset = -0.5
+
+[node name="transition" type="Control" unique_id=1348317852]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l1bx6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1123327854]
+material = SubResource("ShaderMaterial_ie6ll")
+layout_mode = 0
+offset_right = 1201.0
+offset_bottom = 774.0

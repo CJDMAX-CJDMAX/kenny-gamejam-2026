@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d1i6o4ylwnocj"]
+
+[ext_resource type="Script" uid="uid://dfimrjyabfvhy" path="res://Main/Others/objects.gd" id="1_sfsgu"]
+[ext_resource type="Texture2D" uid="uid://cmb3amq14kk0t" path="res://art/assets/Sprites/Tiles/Default/block_empty.png" id="2_1g4je"]
+
+[node name="Objects" type="Node2D" unique_id=1721068299]
+script = ExtResource("1_sfsgu")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1824740455]
+texture = ExtResource("2_1g4je")

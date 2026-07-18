@@ -1,0 +1,409 @@
+[gd_scene format=3 uid="uid://dpifr0ivgmpiv"]
+
+[ext_resource type="Texture2D" uid="uid://dg5saflgli28j" path="res://art/assets/Sprites/Backgrounds/Default/background_color_mushrooms.png" id="1_qvhan"]
+[ext_resource type="Texture2D" uid="uid://dsdfbt058fwt3" path="res://art/assets/Sprites/Backgrounds/Default/background_solid_dirt.png" id="2_k3v36"]
+[ext_resource type="Texture2D" uid="uid://be58yvy1hco4h" path="res://art/assets/Sprites/Backgrounds/Default/background_solid_cloud.png" id="3_liyct"]
+[ext_resource type="Texture2D" uid="uid://dtodgys52rjpx" path="res://art/assets/Sprites/Tiles/Default/terrain_dirt_block_bottom_right.png" id="4_f3gf5"]
+[ext_resource type="Texture2D" uid="uid://d06xodfoosqop" path="res://art/assets/Sprites/Tiles/Default/terrain_dirt_block_bottom_left.png" id="5_rix8b"]
+[ext_resource type="Texture2D" uid="uid://bhu38skwh2id0" path="res://art/assets/Sprites/Tiles/Default/terrain_dirt_block_right.png" id="6_0jx5h"]
+[ext_resource type="Texture2D" uid="uid://cwil8b6lfgnhj" path="res://art/assets/Sprites/Tiles/Default/terrain_dirt_block_top_right.png" id="7_uhr2j"]
+[ext_resource type="Texture2D" uid="uid://dgs026a4r4f4h" path="res://art/assets/Sprites/Tiles/Default/terrain_dirt_block_bottom.png" id="8_l5bfp"]
+[ext_resource type="Texture2D" uid="uid://djiuxvai14vlu" path="res://art/assets/Sprites/Tiles/Default/terrain_dirt_block_center.png" id="9_guo5i"]
+[ext_resource type="Texture2D" uid="uid://hb6ffw2o15wy" path="res://art/assets/Sprites/Tiles/Default/terrain_dirt_block_left.png" id="10_0gq1e"]
+[ext_resource type="Texture2D" uid="uid://btepyeppg3v2x" path="res://art/assets/Sprites/Tiles/Default/terrain_dirt_block_top.png" id="11_wbdht"]
+[ext_resource type="Texture2D" uid="uid://ecoyud17onjb" path="res://art/assets/Sprites/Tiles/Default/terrain_dirt_block_top_left.png" id="12_puekb"]
+
+[sub_resource type="Animation" id="Animation_qvhan"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eunhr"]
+resource_name = "background_move"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-300, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3v36"]
+_data = {
+&"RESET": SubResource("Animation_qvhan"),
+&"background_move": SubResource("Animation_eunhr")
+}
+
+[node name="Main" type="Node2D" unique_id=746216825]
+
+[node name="Background" type="Node2D" parent="." unique_id=1232458204]
+
+[node name="BackgroundColorMushrooms" type="Sprite2D" parent="Background" unique_id=2063775132]
+position = Vector2(128, 448)
+texture = ExtResource("1_qvhan")
+
+[node name="BackgroundColorMushrooms2" type="Sprite2D" parent="Background" unique_id=15446701]
+position = Vector2(384, 448)
+texture = ExtResource("1_qvhan")
+
+[node name="BackgroundSolidDirt" type="Sprite2D" parent="Background" unique_id=1916449414]
+position = Vector2(128, 704)
+texture = ExtResource("2_k3v36")
+
+[node name="BackgroundSolidDirt2" type="Sprite2D" parent="Background" unique_id=1987592083]
+position = Vector2(384, 704)
+texture = ExtResource("2_k3v36")
+
+[node name="BackgroundColorMushrooms5" type="Sprite2D" parent="Background" unique_id=765472269]
+position = Vector2(1152, 448)
+texture = ExtResource("1_qvhan")
+
+[node name="BackgroundColorMushrooms6" type="Sprite2D" parent="Background" unique_id=443246664]
+position = Vector2(1408, 448)
+texture = ExtResource("1_qvhan")
+
+[node name="BackgroundSolidDirt5" type="Sprite2D" parent="Background" unique_id=998130069]
+position = Vector2(1152, 704)
+texture = ExtResource("2_k3v36")
+
+[node name="BackgroundSolidDirt6" type="Sprite2D" parent="Background" unique_id=739744479]
+position = Vector2(1408, 704)
+texture = ExtResource("2_k3v36")
+
+[node name="BackgroundColorMushrooms3" type="Sprite2D" parent="Background" unique_id=1966401295]
+position = Vector2(640, 448)
+texture = ExtResource("1_qvhan")
+
+[node name="BackgroundColorMushrooms4" type="Sprite2D" parent="Background" unique_id=1221421372]
+position = Vector2(896, 448)
+texture = ExtResource("1_qvhan")
+
+[node name="BackgroundSolidDirt3" type="Sprite2D" parent="Background" unique_id=271316811]
+position = Vector2(640, 704)
+texture = ExtResource("2_k3v36")
+
+[node name="BackgroundSolidDirt4" type="Sprite2D" parent="Background" unique_id=178354475]
+position = Vector2(896, 704)
+texture = ExtResource("2_k3v36")
+
+[node name="BackgroundSolidCloud" type="Sprite2D" parent="Background" unique_id=2045765605]
+position = Vector2(128, 192)
+texture = ExtResource("3_liyct")
+
+[node name="BackgroundSolidCloud2" type="Sprite2D" parent="Background" unique_id=863671626]
+position = Vector2(128, -64)
+texture = ExtResource("3_liyct")
+
+[node name="BackgroundSolidCloud3" type="Sprite2D" parent="Background" unique_id=1643695022]
+position = Vector2(384, 192)
+texture = ExtResource("3_liyct")
+
+[node name="BackgroundSolidCloud4" type="Sprite2D" parent="Background" unique_id=1809869101]
+position = Vector2(384, -64)
+texture = ExtResource("3_liyct")
+
+[node name="BackgroundSolidCloud5" type="Sprite2D" parent="Background" unique_id=700952827]
+position = Vector2(640, 192)
+texture = ExtResource("3_liyct")
+
+[node name="BackgroundSolidCloud6" type="Sprite2D" parent="Background" unique_id=2024394419]
+position = Vector2(640, -64)
+texture = ExtResource("3_liyct")
+
+[node name="BackgroundSolidCloud7" type="Sprite2D" parent="Background" unique_id=726011375]
+position = Vector2(896, 192)
+texture = ExtResource("3_liyct")
+
+[node name="BackgroundSolidCloud8" type="Sprite2D" parent="Background" unique_id=1217058307]
+position = Vector2(896, -64)
+texture = ExtResource("3_liyct")
+
+[node name="BackgroundSolidCloud9" type="Sprite2D" parent="Background" unique_id=1472118357]
+position = Vector2(1152, 192)
+texture = ExtResource("3_liyct")
+
+[node name="BackgroundSolidCloud10" type="Sprite2D" parent="Background" unique_id=1244069523]
+position = Vector2(1152, -64)
+texture = ExtResource("3_liyct")
+
+[node name="BackgroundSolidCloud11" type="Sprite2D" parent="Background" unique_id=599019684]
+position = Vector2(1408, 192)
+texture = ExtResource("3_liyct")
+
+[node name="BackgroundSolidCloud12" type="Sprite2D" parent="Background" unique_id=440728545]
+position = Vector2(1408, -64)
+texture = ExtResource("3_liyct")
+
+[node name="Other" type="Node" parent="." unique_id=1088680030]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Other" unique_id=1021041533]
+libraries/ = SubResource("AnimationLibrary_k3v36")
+autoplay = &"background_move"
+
+[node name="Scale" type="Node2D" parent="." unique_id=681985498]
+
+[node name="Player_Scale" type="Node2D" parent="Scale" unique_id=1607870482]
+position = Vector2(700, 400)
+
+[node name="TerrainDirtBlockBottomRight" type="Sprite2D" parent="Scale/Player_Scale" unique_id=966512661]
+position = Vector2(-224, 672)
+texture = ExtResource("4_f3gf5")
+
+[node name="TerrainDirtBlockBottomLeft" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1684994592]
+position = Vector2(-352, 672)
+texture = ExtResource("5_rix8b")
+
+[node name="TerrainDirtBlockRight" type="Sprite2D" parent="Scale/Player_Scale" unique_id=537677081]
+position = Vector2(-224, 608)
+texture = ExtResource("6_0jx5h")
+
+[node name="TerrainDirtBlockRight2" type="Sprite2D" parent="Scale/Player_Scale" unique_id=618072546]
+position = Vector2(-224, 544)
+texture = ExtResource("6_0jx5h")
+
+[node name="TerrainDirtBlockRight3" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1482510004]
+position = Vector2(-224, 480)
+texture = ExtResource("6_0jx5h")
+
+[node name="TerrainDirtBlockRight4" type="Sprite2D" parent="Scale/Player_Scale" unique_id=313776093]
+position = Vector2(-224, 416)
+texture = ExtResource("6_0jx5h")
+
+[node name="TerrainDirtBlockRight5" type="Sprite2D" parent="Scale/Player_Scale" unique_id=336640]
+position = Vector2(-224, 352)
+texture = ExtResource("6_0jx5h")
+
+[node name="TerrainDirtBlockRight6" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1285623280]
+position = Vector2(-224, 288)
+texture = ExtResource("6_0jx5h")
+
+[node name="TerrainDirtBlockRight7" type="Sprite2D" parent="Scale/Player_Scale" unique_id=920127817]
+position = Vector2(-224, 224)
+texture = ExtResource("6_0jx5h")
+
+[node name="TerrainDirtBlockRight8" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1599309981]
+position = Vector2(-224, 160)
+texture = ExtResource("6_0jx5h")
+
+[node name="TerrainDirtBlockTopRight" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1333799090]
+position = Vector2(-224, 96)
+texture = ExtResource("7_uhr2j")
+
+[node name="TerrainDirtBlockBottom" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1919484394]
+position = Vector2(-288, 672)
+texture = ExtResource("8_l5bfp")
+
+[node name="TerrainDirtBlockCenter" type="Sprite2D" parent="Scale/Player_Scale" unique_id=623035975]
+position = Vector2(-288, 608)
+texture = ExtResource("9_guo5i")
+
+[node name="TerrainDirtBlockCenter2" type="Sprite2D" parent="Scale/Player_Scale" unique_id=655504054]
+position = Vector2(-288, 480)
+texture = ExtResource("9_guo5i")
+
+[node name="TerrainDirtBlockCenter3" type="Sprite2D" parent="Scale/Player_Scale" unique_id=789547803]
+position = Vector2(-288, 544)
+texture = ExtResource("9_guo5i")
+
+[node name="TerrainDirtBlockCenter4" type="Sprite2D" parent="Scale/Player_Scale" unique_id=666520101]
+position = Vector2(-288, 416)
+texture = ExtResource("9_guo5i")
+
+[node name="TerrainDirtBlockCenter5" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1317645639]
+position = Vector2(-288, 288)
+texture = ExtResource("9_guo5i")
+
+[node name="TerrainDirtBlockCenter6" type="Sprite2D" parent="Scale/Player_Scale" unique_id=2059409554]
+position = Vector2(-288, 352)
+texture = ExtResource("9_guo5i")
+
+[node name="TerrainDirtBlockCenter7" type="Sprite2D" parent="Scale/Player_Scale" unique_id=986478862]
+position = Vector2(-288, 160)
+texture = ExtResource("9_guo5i")
+
+[node name="TerrainDirtBlockCenter8" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1473007127]
+position = Vector2(-288, 224)
+texture = ExtResource("9_guo5i")
+
+[node name="TerrainDirtBlockLeft" type="Sprite2D" parent="Scale/Player_Scale" unique_id=120650513]
+position = Vector2(-352, 608)
+texture = ExtResource("10_0gq1e")
+
+[node name="TerrainDirtBlockLeft2" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1711323945]
+position = Vector2(-352, 544)
+texture = ExtResource("10_0gq1e")
+
+[node name="TerrainDirtBlockLeft3" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1330375307]
+position = Vector2(-352, 480)
+texture = ExtResource("10_0gq1e")
+
+[node name="TerrainDirtBlockLeft4" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1586360028]
+position = Vector2(-352, 416)
+texture = ExtResource("10_0gq1e")
+
+[node name="TerrainDirtBlockLeft5" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1184842084]
+position = Vector2(-352, 352)
+texture = ExtResource("10_0gq1e")
+
+[node name="TerrainDirtBlockLeft6" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1132933961]
+position = Vector2(-352, 288)
+texture = ExtResource("10_0gq1e")
+
+[node name="TerrainDirtBlockLeft7" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1964029787]
+position = Vector2(-352, 224)
+texture = ExtResource("10_0gq1e")
+
+[node name="TerrainDirtBlockLeft8" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1191565683]
+position = Vector2(-352, 160)
+texture = ExtResource("10_0gq1e")
+
+[node name="TerrainDirtBlockTop" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1611419165]
+position = Vector2(-288, 96)
+texture = ExtResource("11_wbdht")
+
+[node name="TerrainDirtBlockTopLeft" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1923091126]
+position = Vector2(-352, 96)
+texture = ExtResource("12_puekb")
+
+[node name="enemy_scale" type="Node2D" parent="Scale" unique_id=851755824]
+position = Vector2(452, 550)
+scale = Vector2(-1, 1)
+
+[node name="TerrainDirtBlockBottomRight" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1586706305]
+position = Vector2(-224, 672)
+texture = ExtResource("4_f3gf5")
+
+[node name="TerrainDirtBlockBottomLeft" type="Sprite2D" parent="Scale/enemy_scale" unique_id=203923802]
+position = Vector2(-352, 672)
+texture = ExtResource("5_rix8b")
+
+[node name="TerrainDirtBlockRight" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1656993663]
+position = Vector2(-224, 608)
+texture = ExtResource("6_0jx5h")
+
+[node name="TerrainDirtBlockRight2" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1817458484]
+position = Vector2(-224, 544)
+texture = ExtResource("6_0jx5h")
+
+[node name="TerrainDirtBlockRight3" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1225601049]
+position = Vector2(-224, 480)
+texture = ExtResource("6_0jx5h")
+
+[node name="TerrainDirtBlockRight4" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1189009070]
+position = Vector2(-224, 416)
+texture = ExtResource("6_0jx5h")
+
+[node name="TerrainDirtBlockRight5" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1409806989]
+position = Vector2(-224, 352)
+texture = ExtResource("6_0jx5h")
+
+[node name="TerrainDirtBlockRight6" type="Sprite2D" parent="Scale/enemy_scale" unique_id=180179403]
+position = Vector2(-224, 288)
+texture = ExtResource("6_0jx5h")
+
+[node name="TerrainDirtBlockRight7" type="Sprite2D" parent="Scale/enemy_scale" unique_id=967724548]
+position = Vector2(-224, 224)
+texture = ExtResource("6_0jx5h")
+
+[node name="TerrainDirtBlockRight8" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1108056369]
+position = Vector2(-224, 160)
+texture = ExtResource("6_0jx5h")
+
+[node name="TerrainDirtBlockTopRight" type="Sprite2D" parent="Scale/enemy_scale" unique_id=208463000]
+position = Vector2(-224, 96)
+texture = ExtResource("7_uhr2j")
+
+[node name="TerrainDirtBlockBottom" type="Sprite2D" parent="Scale/enemy_scale" unique_id=827680741]
+position = Vector2(-288, 672)
+texture = ExtResource("8_l5bfp")
+
+[node name="TerrainDirtBlockCenter" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1596469776]
+position = Vector2(-288, 608)
+texture = ExtResource("9_guo5i")
+
+[node name="TerrainDirtBlockCenter2" type="Sprite2D" parent="Scale/enemy_scale" unique_id=425107565]
+position = Vector2(-288, 480)
+texture = ExtResource("9_guo5i")
+
+[node name="TerrainDirtBlockCenter3" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1114448748]
+position = Vector2(-288, 544)
+texture = ExtResource("9_guo5i")
+
+[node name="TerrainDirtBlockCenter4" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1068312039]
+position = Vector2(-288, 416)
+texture = ExtResource("9_guo5i")
+
+[node name="TerrainDirtBlockCenter5" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1233322179]
+position = Vector2(-288, 288)
+texture = ExtResource("9_guo5i")
+
+[node name="TerrainDirtBlockCenter6" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1259468852]
+position = Vector2(-288, 352)
+texture = ExtResource("9_guo5i")
+
+[node name="TerrainDirtBlockCenter7" type="Sprite2D" parent="Scale/enemy_scale" unique_id=2077763609]
+position = Vector2(-288, 160)
+texture = ExtResource("9_guo5i")
+
+[node name="TerrainDirtBlockCenter8" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1781123293]
+position = Vector2(-288, 224)
+texture = ExtResource("9_guo5i")
+
+[node name="TerrainDirtBlockLeft" type="Sprite2D" parent="Scale/enemy_scale" unique_id=131189301]
+position = Vector2(-352, 608)
+texture = ExtResource("10_0gq1e")
+
+[node name="TerrainDirtBlockLeft2" type="Sprite2D" parent="Scale/enemy_scale" unique_id=162793183]
+position = Vector2(-352, 544)
+texture = ExtResource("10_0gq1e")
+
+[node name="TerrainDirtBlockLeft3" type="Sprite2D" parent="Scale/enemy_scale" unique_id=691937902]
+position = Vector2(-352, 480)
+texture = ExtResource("10_0gq1e")
+
+[node name="TerrainDirtBlockLeft4" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1176983899]
+position = Vector2(-352, 416)
+texture = ExtResource("10_0gq1e")
+
+[node name="TerrainDirtBlockLeft5" type="Sprite2D" parent="Scale/enemy_scale" unique_id=201894007]
+position = Vector2(-352, 352)
+texture = ExtResource("10_0gq1e")
+
+[node name="TerrainDirtBlockLeft6" type="Sprite2D" parent="Scale/enemy_scale" unique_id=922620545]
+position = Vector2(-352, 288)
+texture = ExtResource("10_0gq1e")
+
+[node name="TerrainDirtBlockLeft7" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1541825438]
+position = Vector2(-352, 224)
+texture = ExtResource("10_0gq1e")
+
+[node name="TerrainDirtBlockLeft8" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1558887572]
+position = Vector2(-352, 160)
+texture = ExtResource("10_0gq1e")
+
+[node name="TerrainDirtBlockTop" type="Sprite2D" parent="Scale/enemy_scale" unique_id=804080712]
+position = Vector2(-288, 96)
+texture = ExtResource("11_wbdht")
+
+[node name="TerrainDirtBlockTopLeft" type="Sprite2D" parent="Scale/enemy_scale" unique_id=1192712196]
+position = Vector2(-352, 96)
+texture = ExtResource("12_puekb")
+
+[node name="Ui" type="Node2D" parent="." unique_id=225842226]
