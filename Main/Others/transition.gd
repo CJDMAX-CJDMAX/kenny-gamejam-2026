@@ -9,4 +9,7 @@ func _ready() -> void:
 func start_transtion():
 	var tween = create_tween()
 	tween.tween_property($ColorRect.material,"shader_parameter/power",0,1)
+	
+func end_transition():
+	var tween = create_tween()
 	tween.tween_property($ColorRect.material,"shader_parameter/power",30,3)

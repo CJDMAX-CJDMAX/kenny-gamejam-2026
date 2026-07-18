@@ -1,43 +1,50 @@
 extends RigidBody2D
 
 var weight : int
+var number : int = 1
 @export var type : int 
 var texture_object : Array[Texture2D] = [load("res://art/assets/Sprites/Tiles/Default/block_empty.png"),
 load("res://art/assets/Sprites/Tiles/Default/block_blue.png"),
-load("res://art/assets/Sprites/Tiles/Default/block_red.png")
+load("res://art/assets/Sprites/Tiles/Default/block_red.png"),
+load("res://art/assets/Sprites/Tiles/Default/block_green.png")
 ]
-var weight_object: Array[int] = [2,5,8]
+var weight_object: Array[int] = [2,5,8,15]
 enum ObjectState {
 	IN_MARKER,
 	DRAGGING,
 	FREE_PHYSICS,
+	RETURNING_TO_MARKER,
 }
 
 @export var marker_object: Marker2D
 @export var max_drag_velocity := 4000.0
 @export var return_to_marker_y := 1000.0
+@export var return_fade_out_time := 0.08
+@export var return_fade_in_time := 0.12
 
 var dragging := false
 var in_goat_area := false
 var grab_offset := Vector2.ZERO
 var drag_target_position := Vector2.ZERO
 var current_state := ObjectState.IN_MARKER
+var return_tween: Tween
 
 
 func _ready() -> void:
 	can_sleep = false
-	if type:
-		$sprite.texture = texture_object[type]
+	if type >= 0 and type < weight_object.size():
 		weight = weight_object[type]
-		$Label.text = str(weight) + "kg"
+	if type >= 0 and type < texture_object.size():
+		$sprite.texture = texture_object[type]
+	$Label.text = str(weight) + "kg"
 		
-	call_deferred("bind_to_marker")
+	call_deferred("bind_to_marker", false, false)
 
 
 func _physics_process(_delta: float) -> void:
 	if dragging:
 		drag_target_position = get_global_mouse_position() - grab_offset
-	elif global_position.y > return_to_marker_y:
+	elif current_state != ObjectState.RETURNING_TO_MARKER and global_position.y > return_to_marker_y:
 		in_goat_area = false
 		bind_to_marker(true)
 
@@ -53,6 +60,8 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 			drag_velocity = drag_velocity.normalized() * max_drag_velocity
 		new_transform.origin = drag_target_position
 		state.linear_velocity = drag_velocity
+	elif current_state == ObjectState.RETURNING_TO_MARKER:
+		state.linear_velocity = Vector2.ZERO
 	elif marker_object:
 		new_transform.origin = marker_object.global_position
 		state.linear_velocity = Vector2.ZERO
@@ -71,6 +80,9 @@ func _input(event: InputEvent) -> void:
 
 
 func start_drag(mouse_pos: Vector2) -> void:
+	if return_tween:
+		return_tween.kill()
+	modulate.a = 1.0
 	dragging = true
 	current_state = ObjectState.DRAGGING
 	$Label.visible = true
@@ -94,18 +106,31 @@ func stop_drag() -> void:
 		bind_to_marker(false)
 
 
-func bind_to_marker(force := false) -> void:
+func bind_to_marker(force := false, animate := true) -> void:
 	if marker_object == null:
 		return
 
 	if in_goat_area and not force:
 		return
+	
+	if current_state == ObjectState.RETURNING_TO_MARKER:
+		return
 
 	dragging = false
-	current_state = ObjectState.IN_MARKER
+	current_state = ObjectState.RETURNING_TO_MARKER
 	custom_integrator = true
 	$Label.visible = false
-	_sync_body_to_position(marker_object.global_position)
+	linear_velocity = Vector2.ZERO
+	angular_velocity = 0.0
+	sleeping = false
+
+	if animate:
+		await _play_return_to_marker_effect()
+	else:
+		_sync_body_to_position(marker_object.global_position)
+		modulate.a = 1.0
+
+	current_state = ObjectState.IN_MARKER
 
 
 func release_to_physics() -> void:
@@ -151,6 +176,21 @@ func _sync_body_to_position(target_position: Vector2) -> void:
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0.0
 	sleeping = false
+
+
+func _play_return_to_marker_effect() -> void:
+	if return_tween:
+		return_tween.kill()
+
+	return_tween = create_tween()
+	return_tween.tween_property(self, "modulate:a", 0.0, return_fade_out_time)
+	await return_tween.finished
+
+	_sync_body_to_position(marker_object.global_position)
+
+	return_tween = create_tween()
+	return_tween.tween_property(self, "modulate:a", 1.0, return_fade_in_time)
+	await return_tween.finished
 
 
 func _wake_sibling_objects() -> void:
