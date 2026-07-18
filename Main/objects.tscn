@@ -3,8 +3,19 @@
 [ext_resource type="Script" uid="uid://dfimrjyabfvhy" path="res://Main/Others/objects.gd" id="1_sfsgu"]
 [ext_resource type="Texture2D" uid="uid://cmb3amq14kk0t" path="res://art/assets/Sprites/Tiles/Default/block_empty.png" id="2_1g4je"]
 
-[node name="Objects" type="Node2D" unique_id=1721068299]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sfsgu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhfj1"]
+size = Vector2(64, 64)
+
+[node name="Objects" type="RigidBody2D" unique_id=523393070]
+mass = 0.4
+physics_material_override = SubResource("PhysicsMaterial_sfsgu")
+lock_rotation = true
 script = ExtResource("1_sfsgu")
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=1824740455]
 texture = ExtResource("2_1g4je")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1574915237]
+shape = SubResource("RectangleShape2D_uhfj1")

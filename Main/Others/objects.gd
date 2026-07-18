@@ -1,4 +1,4 @@
-extends Node2D
+extends RigidBody2D
 
 
 var drag = false
@@ -6,6 +6,7 @@ var drag = false
 var mp = Vector2(0, 0)
 
 func _process(delta):
+	get_gravity()
 	if drag:
 		self.position = get_global_mouse_position() - mp
 

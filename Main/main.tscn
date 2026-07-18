@@ -12,6 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://hb6ffw2o15wy" path="res://art/assets/Sprites/Tiles/Default/terrain_dirt_block_left.png" id="10_0gq1e"]
 [ext_resource type="Texture2D" uid="uid://btepyeppg3v2x" path="res://art/assets/Sprites/Tiles/Default/terrain_dirt_block_top.png" id="11_wbdht"]
 [ext_resource type="Texture2D" uid="uid://ecoyud17onjb" path="res://art/assets/Sprites/Tiles/Default/terrain_dirt_block_top_left.png" id="12_puekb"]
+[ext_resource type="Texture2D" uid="uid://e552700epapk" path="res://art/Others/button_square_depth_flat.png" id="13_rix8b"]
+[ext_resource type="Texture2D" uid="uid://dihi186i4g8v6" path="res://art/assets/Sprites/Tiles/Default/block_blue.png" id="14_0gq1e"]
+[ext_resource type="PackedScene" uid="uid://d1i6o4ylwnocj" path="res://Main/objects.tscn" id="14_wbdht"]
+[ext_resource type="Texture2D" uid="uid://csog5sjkh4fat" path="res://art/assets/Sprites/Tiles/Default/block_coin_active.png" id="15_wbdht"]
+[ext_resource type="Texture2D" uid="uid://cdw00xsdtoug3" path="res://art/assets/Sprites/Tiles/Default/block_exclamation_active.png" id="16_puekb"]
+[ext_resource type="Texture2D" uid="uid://cnw4qhkj4b60t" path="res://art/assets/Sprites/Tiles/Default/block_exclamation.png" id="17_xi84t"]
+[ext_resource type="Texture2D" uid="uid://cmb3amq14kk0t" path="res://art/assets/Sprites/Tiles/Default/block_empty.png" id="18_j4inf"]
 
 [sub_resource type="Animation" id="Animation_qvhan"]
 length = 0.001
@@ -50,6 +57,9 @@ _data = {
 &"RESET": SubResource("Animation_qvhan"),
 &"background_move": SubResource("Animation_eunhr")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhfj1"]
+size = Vector2(193, 639.25)
 
 [node name="Main" type="Node2D" unique_id=746216825]
 
@@ -159,8 +169,10 @@ autoplay = &"background_move"
 
 [node name="Scale" type="Node2D" parent="." unique_id=681985498]
 
-[node name="Player_Scale" type="Node2D" parent="Scale" unique_id=1607870482]
+[node name="Player_Scale" type="RigidBody2D" parent="Scale" unique_id=289537158]
 position = Vector2(700, 400)
+lock_rotation = true
+freeze = true
 
 [node name="TerrainDirtBlockBottomRight" type="Sprite2D" parent="Scale/Player_Scale" unique_id=966512661]
 position = Vector2(-224, 672)
@@ -281,6 +293,10 @@ texture = ExtResource("11_wbdht")
 [node name="TerrainDirtBlockTopLeft" type="Sprite2D" parent="Scale/Player_Scale" unique_id=1923091126]
 position = Vector2(-352, 96)
 texture = ExtResource("12_puekb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scale/Player_Scale" unique_id=1104392406]
+position = Vector2(-289, 384)
+shape = SubResource("RectangleShape2D_uhfj1")
 
 [node name="enemy_scale" type="Node2D" parent="Scale" unique_id=851755824]
 position = Vector2(452, 550)
@@ -407,3 +423,42 @@ position = Vector2(-352, 96)
 texture = ExtResource("12_puekb")
 
 [node name="Ui" type="Node2D" parent="." unique_id=225842226]
+
+[node name="ButtonSquareFlat" type="Sprite2D" parent="Ui" unique_id=1253284623]
+position = Vector2(80.00001, 80.00001)
+rotation = -0.17453292
+texture = ExtResource("13_rix8b")
+
+[node name="Label" type="Label" parent="Ui/ButtonSquareFlat" unique_id=1129550186]
+offset_left = -40.0
+offset_top = -48.0
+offset_right = 66.0
+offset_bottom = 48.0
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 64
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Objects" parent="Ui" unique_id=1304267699 instance=ExtResource("14_wbdht")]
+position = Vector2(408, 232)
+
+[node name="BlockBlue" type="Sprite2D" parent="." unique_id=1126551616]
+position = Vector2(208, 72)
+texture = ExtResource("14_0gq1e")
+
+[node name="BlockCoinActive" type="Sprite2D" parent="." unique_id=288416740]
+position = Vector2(296, 72)
+texture = ExtResource("15_wbdht")
+
+[node name="BlockExclamationActive" type="Sprite2D" parent="." unique_id=1951340820]
+position = Vector2(376, 72)
+texture = ExtResource("16_puekb")
+
+[node name="BlockExclamation" type="Sprite2D" parent="." unique_id=113520395]
+position = Vector2(448, 72)
+texture = ExtResource("17_xi84t")
+
+[node name="BlockEmpty" type="Sprite2D" parent="." unique_id=606014324]
+position = Vector2(520, 72)
+texture = ExtResource("18_j4inf")
