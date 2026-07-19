@@ -13,7 +13,7 @@ load("res://art/assets/Sprites/Tiles/Default/block_coin_active.png"),
 load("res://art/assets/Sprites/Tiles/Default/block_planks.png"),
 load("res://art/assets/Sprites/Tiles/Default/block_exclamation_active.png")
 ]
-var weight_object: Array[int] = [2,5,8,15,20]
+var weight_object: Array[int] = [2,5,8,10,15]
 const HALF_WEIGHT_TYPE := 5
 const DOUBLE_WEIGHT_TYPE := 6
 const AREA_BONUS_TYPE := 7
@@ -31,10 +31,10 @@ enum ObjectState {
 @export var return_fade_out_time := 0.08
 @export var return_fade_in_time := 0.12
 @export_group("Special Weight Text")
-@export_multiline var half_weight_text_template := "{weight}kg = {base_weight}kg / 2"
-@export_multiline var double_weight_text_template := "{weight}kg = {base_weight}kg x 2"
-@export_multiline var area_bonus_text_template := "{weight}kg = {area_weight_count} x +5kg"
-@export_multiline var area_penalty_text_template := "{weight}kg = {area_weight_count} x -5kg"
+@export_multiline var half_weight_text_template := "The number of weights that make up the two weights is the total mass divided by 2"
+@export_multiline var double_weight_text_template := "The number of weights that make up the two weights is equal to the total mass multiplied by 2."
+@export_multiline var area_bonus_text_template := "For each weight in area, the weight of that weight is increased by 5."
+@export_multiline var area_penalty_text_template := "For each weight in the area, the weight of that weight is reduced by 5."
 @export_group("")
 
 var dragging := false
@@ -51,6 +51,7 @@ func _ready() -> void:
 	if type >= 0 and type < texture_object.size():
 		$sprite.texture = texture_object[type]
 	get_effective_weight()
+	_update_special_weight_label()
 		
 	call_deferred("bind_to_marker", false, false)
 
@@ -135,6 +136,10 @@ func _format_special_weight_text(text_template: String, effective_weight: int, a
 
 func _update_weight_label(display_weight: int) -> void:
 	$Label.text = str(display_weight) + "kg"
+
+
+func _update_special_weight_label() -> void:
+	$Label2.text = get_special_weight_text_template(type)
 
 
 func _physics_process(_delta: float) -> void:

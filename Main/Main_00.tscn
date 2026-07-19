@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://ecoyud17onjb" path="res://art/assets/Sprites/Tiles/Default/terrain_dirt_block_top_left.png" id="12_puekb"]
 [ext_resource type="Texture2D" uid="uid://e552700epapk" path="res://art/Others/button_square_depth_flat.png" id="13_rix8b"]
 [ext_resource type="Script" uid="uid://dyrxhu8nwnjjs" path="res://Main/Others/ui.gd" id="14_mbken"]
-[ext_resource type="Texture2D" uid="uid://2w13jsbjnx2p" path="res://art/Others/button_round_depth_border.png" id="14_uhr2j"]
 [ext_resource type="PackedScene" uid="uid://d1i6o4ylwnocj" path="res://Main/objects.tscn" id="14_wbdht"]
 [ext_resource type="Texture2D" uid="uid://c8opcx5fl6qv0" path="res://art/Others/button_square_depth_flat (2).png" id="15_l5bfp"]
 [ext_resource type="Script" uid="uid://b76ptibdivwe7" path="res://Main/Others/area_2d.gd" id="17_guo5i"]
@@ -60,6 +59,9 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhfj1"]
 size = Vector2(193, 639.25)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e1kko"]
+load_path = "res://.godot/imported/button_round_depth_border.png-a9671da2206f487dec81f518756d5754.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7dn7"]
 size = Vector2(418, 612)
@@ -450,7 +452,7 @@ vertical_alignment = 1
 [node name="lock" type="Sprite2D" parent="Ui" unique_id=1989754729]
 position = Vector2(72, 205)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("14_uhr2j")
+texture = SubResource("CompressedTexture2D_e1kko")
 
 [node name="Label" type="Label" parent="Ui/lock" unique_id=340789829]
 offset_left = -18.571434
@@ -470,10 +472,10 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("15_l5bfp")
 
 [node name="Label2" type="Label" parent="Ui/goat1" unique_id=1503500722]
-offset_left = -35.714287
-offset_top = -55.714333
-offset_right = 55.71428
-offset_bottom = 48.571404
+offset_left = -67.52285
+offset_top = -58.813557
+offset_right = 90.47715
+offset_bottom = 45.47218
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 64
 text = "0"

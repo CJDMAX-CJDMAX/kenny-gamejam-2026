@@ -428,9 +428,9 @@ shape = SubResource("RectangleShape2D_uhfj1")
 
 [node name="Ui" type="Node2D" parent="." unique_id=225842226]
 script = ExtResource("14_y6fma")
-goat = 20
-lock = 4
-now_rate = 2
+goat = 9
+lock = 5
+now_rate = 3
 
 [node name="goat" type="Sprite2D" parent="Ui" unique_id=1253284623]
 position = Vector2(80.00001, 80.00001)
@@ -487,46 +487,26 @@ vertical_alignment = 1
 position = Vector2(750, 60)
 marker_object = NodePath("../all_markers/Marker2D")
 
-[node name="Objects4" parent="Objects" unique_id=523393070 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_0p4oq")]
+[node name="Objects2" parent="Objects" unique_id=523393070 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_0p4oq")]
 position = Vector2(750, 60)
 marker_object = NodePath("../all_markers/Marker2D2")
 
-[node name="Objects5" parent="Objects" unique_id=2004289692 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_0p4oq")]
+[node name="Objects3" parent="Objects" unique_id=1233480943 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_0p4oq")]
 position = Vector2(750, 60)
 marker_object = NodePath("../all_markers/Marker2D3")
 
-[node name="Objects6" parent="Objects" unique_id=2091712291 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_0p4oq")]
+[node name="Objects4" parent="Objects" unique_id=683679951 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_0p4oq")]
 position = Vector2(750, 60)
 marker_object = NodePath("../all_markers/Marker2D4")
 
-[node name="Objects2" parent="Objects" unique_id=74251852 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_0p4oq")]
-position = Vector2(820, 60)
+[node name="Objects5" parent="Objects" unique_id=2141240754 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_0p4oq")]
+position = Vector2(750, 60)
 marker_object = NodePath("../all_markers/Marker2D5")
 
-[node name="Objects3" parent="Objects" unique_id=1464178523 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_0p4oq")]
-position = Vector2(820, 60)
-type = 2
+[node name="Objects6" parent="Objects" unique_id=575398844 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_0p4oq")]
+position = Vector2(750, 60)
+type = 5
 marker_object = NodePath("../all_markers/Marker2D6")
-
-[node name="Objects7" parent="Objects" unique_id=47113286 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_0p4oq")]
-position = Vector2(820, 60)
-type = 2
-marker_object = NodePath("../all_markers/Marker2D7")
-
-[node name="Objects8" parent="Objects" unique_id=287017350 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_0p4oq")]
-position = Vector2(820, 60)
-type = 3
-marker_object = NodePath("../all_markers/Marker2D8")
-
-[node name="Objects9" parent="Objects" unique_id=2059827633 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_0p4oq")]
-position = Vector2(820, 60)
-type = 4
-marker_object = NodePath("../all_markers/Marker2D9")
-
-[node name="Objects10" parent="Objects" unique_id=2114692433 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_0p4oq")]
-position = Vector2(820, 60)
-type = 6
-marker_object = NodePath("../all_markers/Marker2D10")
 
 [node name="Area2D" type="Area2D" parent="Objects" unique_id=643345649]
 position = Vector2(913, 384)

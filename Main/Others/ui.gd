@@ -54,6 +54,12 @@ func _physics_process(_delta: float) -> void:
 					get_tree().change_scene_to_file("res://Main/Main_02.tscn")
 				elif  now_rate == 2:
 					get_tree().change_scene_to_file("res://Main/Main_03.tscn")
+				elif  now_rate == 3:
+					get_tree().change_scene_to_file("res://Main/Main_04.tscn")
+				elif  now_rate == 4:
+					get_tree().change_scene_to_file("res://Main/Main_05.tscn")
+				elif  now_rate == 5:
+					get_tree().change_scene_to_file("res://Main/Main_06.tscn")
 			pass
 		pass
 	pass
