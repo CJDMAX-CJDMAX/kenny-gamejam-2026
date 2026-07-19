@@ -32,6 +32,16 @@ theme_override_constants/outline_size = 7
 theme_override_font_sizes/font_size = 32
 text = "2kg"
 
+[node name="Label2" type="Label" parent="." unique_id=87928860]
+visible = false
+z_index = 2
+offset_left = -137.0
+offset_top = -76.0
+offset_right = 162.0
+offset_bottom = -40.0
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 32
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1476312456]
 stream = ExtResource("3_1g4je")
 volume_db = -10.0

@@ -1,14 +1,23 @@
 extends RigidBody2D
 
-var weight : int
+var weight : int = 0
 var number : int = 1
 @export var type : int 
 var texture_object : Array[Texture2D] = [load("res://art/assets/Sprites/Tiles/Default/block_empty.png"),
 load("res://art/assets/Sprites/Tiles/Default/block_blue.png"),
 load("res://art/assets/Sprites/Tiles/Default/block_red.png"),
-load("res://art/assets/Sprites/Tiles/Default/block_green.png")
+load("res://art/assets/Sprites/Tiles/Default/block_green.png"),
+load("res://art/assets/Sprites/Tiles/Default/block_yellow.png"),
+load("res://art/assets/Sprites/Tiles/Default/block_coin.png"),
+load("res://art/assets/Sprites/Tiles/Default/block_coin_active.png"),
+load("res://art/assets/Sprites/Tiles/Default/block_planks.png"),
+load("res://art/assets/Sprites/Tiles/Default/block_exclamation_active.png")
 ]
-var weight_object: Array[int] = [2,5,8,15]
+var weight_object: Array[int] = [2,5,8,15,20]
+const HALF_WEIGHT_TYPE := 5
+const DOUBLE_WEIGHT_TYPE := 6
+const AREA_BONUS_TYPE := 7
+const AREA_PENALTY_TYPE := 8
 enum ObjectState {
 	IN_MARKER,
 	DRAGGING,
@@ -21,6 +30,12 @@ enum ObjectState {
 @export var return_to_marker_y := 1000.0
 @export var return_fade_out_time := 0.08
 @export var return_fade_in_time := 0.12
+@export_group("Special Weight Text")
+@export_multiline var half_weight_text_template := "{weight}kg = {base_weight}kg / 2"
+@export_multiline var double_weight_text_template := "{weight}kg = {base_weight}kg x 2"
+@export_multiline var area_bonus_text_template := "{weight}kg = {area_weight_count} x +5kg"
+@export_multiline var area_penalty_text_template := "{weight}kg = {area_weight_count} x -5kg"
+@export_group("")
 
 var dragging := false
 var in_goat_area := false
@@ -32,13 +47,94 @@ var return_tween: Tween
 
 func _ready() -> void:
 	can_sleep = false
-	if type >= 0 and type < weight_object.size():
-		weight = weight_object[type]
+	_setup_weight_properties()
 	if type >= 0 and type < texture_object.size():
 		$sprite.texture = texture_object[type]
-	$Label.text = str(weight) + "kg"
+	get_effective_weight()
 		
 	call_deferred("bind_to_marker", false, false)
+
+
+func _setup_weight_properties() -> void:
+	number = 1
+	if type >= 0 and type < weight_object.size():
+		weight = weight_object[type]
+	elif type == HALF_WEIGHT_TYPE or type == DOUBLE_WEIGHT_TYPE:
+		number = 2
+
+
+func get_weight_count() -> int:
+	return number
+
+
+func is_special_weight() -> bool:
+	return type >= HALF_WEIGHT_TYPE and type <= AREA_PENALTY_TYPE
+
+
+func get_effective_weight(area_weight_count := 0, base_weight := 0) -> int:
+	var effective_weight := weight
+	match type:
+		HALF_WEIGHT_TYPE:
+			effective_weight = int(base_weight / 2.0)
+		DOUBLE_WEIGHT_TYPE:
+			effective_weight = base_weight * 2
+		AREA_BONUS_TYPE:
+			effective_weight = area_weight_count * 5
+		AREA_PENALTY_TYPE:
+			effective_weight = -area_weight_count * 5
+	_update_weight_label(effective_weight)
+	return effective_weight
+
+
+func get_special_weight_text(area_weight_count := 0, base_weight := 0) -> String:
+	var effective_weight := get_effective_weight(area_weight_count, base_weight)
+	return _format_special_weight_text(
+		get_special_weight_text_template(type),
+		effective_weight,
+		area_weight_count,
+		base_weight
+	)
+
+
+func set_special_weight_text_template(special_type: int, text_template: String) -> void:
+	match special_type:
+		HALF_WEIGHT_TYPE:
+			half_weight_text_template = text_template
+		DOUBLE_WEIGHT_TYPE:
+			double_weight_text_template = text_template
+		AREA_BONUS_TYPE:
+			area_bonus_text_template = text_template
+		AREA_PENALTY_TYPE:
+			area_penalty_text_template = text_template
+
+
+func get_special_weight_text_template(special_type: int = type) -> String:
+	match special_type:
+		HALF_WEIGHT_TYPE:
+			return half_weight_text_template
+		DOUBLE_WEIGHT_TYPE:
+			return double_weight_text_template
+		AREA_BONUS_TYPE:
+			return area_bonus_text_template
+		AREA_PENALTY_TYPE:
+			return area_penalty_text_template
+	return ""
+
+
+func _format_special_weight_text(text_template: String, effective_weight: int, area_weight_count: int, base_weight: int) -> String:
+	if text_template == "":
+		return ""
+	var special_text := text_template
+	special_text = special_text.replace("{weight}", str(effective_weight))
+	special_text = special_text.replace("{area_weight_count}", str(area_weight_count))
+	special_text = special_text.replace("{base_weight}", str(base_weight))
+	special_text = special_text.replace("{number}", str(number))
+	special_text = special_text.replace("{type}", str(type))
+	return special_text
+
+
+func _update_weight_label(display_weight: int) -> void:
+	$Label.text = str(display_weight) + "kg"
 
 
 func _physics_process(_delta: float) -> void:
@@ -87,6 +183,7 @@ func start_drag(mouse_pos: Vector2) -> void:
 	$AudioStreamPlayer.play()
 	current_state = ObjectState.DRAGGING
 	$Label.visible = true
+	$Label2.visible = true
 	grab_offset = mouse_pos - global_position
 	drag_target_position = global_position
 	custom_integrator = true
@@ -101,6 +198,7 @@ func stop_drag() -> void:
 	_sync_body_to_position(drag_target_position)
 	dragging = false
 	$Label.visible = false
+	$Label2.visible = false
 	if in_goat_area:
 		release_to_physics()
 	else:
@@ -121,6 +219,7 @@ func bind_to_marker(force := false, animate := true) -> void:
 	current_state = ObjectState.RETURNING_TO_MARKER
 	custom_integrator = true
 	$Label.visible = false
+	$Label2.visible = false
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0.0
 	sleeping = false

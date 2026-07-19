@@ -27,3 +27,5 @@ material = SubResource("ShaderMaterial_ie6ll")
 layout_mode = 0
 offset_right = 1201.0
 offset_bottom = 774.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1217073416]

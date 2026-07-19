@@ -6,22 +6,41 @@ extends Node2D
 @export var now_rate : int
 var number : int
 var win : bool = false
+var total_weight : int = 0
+var special_weight_text : String = ""
 
 func _ready() -> void:
 	Transition.end_transition()
 	$goat/Label.text = str(goat)
 	$lock/Label.text = str(lock)
 	_update_goat1_weight(0)
+	set_special_weight_text("")
 
 
-func _on_goat_area_weight_changed(total_weight: int) -> void:
-	_update_goat1_weight(total_weight)
+func _on_goat_area_weight_changed(new_total_weight: int, new_special_weight_text: String = "") -> void:
+	_update_goat1_weight(new_total_weight)
+	set_special_weight_text(new_special_weight_text)
 
 
-func _update_goat1_weight(total_weight: int) -> void:
+func _update_goat1_weight(new_total_weight: int) -> void:
+	total_weight = new_total_weight
 	$goat1/Label2.text = str(total_weight)
+
+
+func set_special_weight_text(new_special_weight_text: String) -> void:
+	special_weight_text = new_special_weight_text
+	if has_node("special_weight_text"):
+		$special_weight_text.text = special_weight_text
+	elif has_node("special_weight_text/Label"):
+		$special_weight_text/Label.text = special_weight_text
+
+
+func get_special_weight_text() -> String:
+	return special_weight_text
+
+
 func _physics_process(_delta: float) -> void:
-	if int($goat1/Label2.text) == goat:
+	if total_weight == goat:
 		if number <= lock:
 			if win != true:
 				win = true
@@ -34,7 +53,7 @@ func _physics_process(_delta: float) -> void:
 				elif now_rate ==1:
 					get_tree().change_scene_to_file("res://Main/Main_02.tscn")
 				elif  now_rate == 2:
-					get_tree().change_scene_to_file("res://Main/Main_02.tscn")
+					get_tree().change_scene_to_file("res://Main/Main_03.tscn")
 			pass
 		pass
 	pass
