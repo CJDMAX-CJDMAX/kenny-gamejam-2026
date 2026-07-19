@@ -60,6 +60,27 @@ func _physics_process(_delta: float) -> void:
 					get_tree().change_scene_to_file("res://Main/Main_05.tscn")
 				elif  now_rate == 5:
 					get_tree().change_scene_to_file("res://Main/Main_06.tscn")
+				elif  now_rate == 6:
+					get_tree().change_scene_to_file("res://Main/Main_07.tscn")
+				elif  now_rate == 7:
+					get_tree().change_scene_to_file("res://Main/Main_08.tscn")
+				elif  now_rate == 8:
+					get_tree().change_scene_to_file("res://Main/Main_09.tscn")
+				elif  now_rate == 9:
+					get_tree().change_scene_to_file("res://Main/Main_10.tscn")
+				elif  now_rate == 10:
+					get_tree().change_scene_to_file("res://Main/Main_11.tscn")
+				elif  now_rate == 11:
+					get_tree().change_scene_to_file("res://Main/Main_12.tscn")
+				elif  now_rate == 12:
+					get_tree().change_scene_to_file("res://Main/Main_13.tscn")
+				elif  now_rate == 13:
+					get_tree().change_scene_to_file("res://Main/Main_14.tscn")
+				elif  now_rate == 14:
+					get_tree().change_scene_to_file("res://Main/Main_15.tscn")
+				elif  now_rate == 15:
+					Transition.final_win = true
+					get_tree().change_scene_to_file("res://Main/Main.tscn")
 			pass
 		pass
 	pass

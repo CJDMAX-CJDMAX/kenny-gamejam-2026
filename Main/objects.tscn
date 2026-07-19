@@ -47,4 +47,4 @@ autowrap_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1476312456]
 stream = ExtResource("3_1g4je")
-volume_db = -10.0
+volume_db = -5.0

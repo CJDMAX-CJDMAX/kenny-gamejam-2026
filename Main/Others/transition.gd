@@ -1,7 +1,7 @@
 extends Control
 
 
-
+var final_win : bool = false
 func _ready() -> void:
 	pass
 

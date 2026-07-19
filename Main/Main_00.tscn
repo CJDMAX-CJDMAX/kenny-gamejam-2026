@@ -660,6 +660,56 @@ position = Vector2(1030, 550)
 [node name="Marker2D48" type="Marker2D" parent="Objects/all_markers" unique_id=1057411065]
 position = Vector2(1100, 550)
 
+[node name="Label" type="Node2D" parent="." unique_id=1597765839]
+
+[node name="Label" type="Label" parent="Label" unique_id=4435521]
+offset_left = 133.0
+offset_top = 24.0
+offset_right = 329.0
+offset_bottom = 138.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 16
+text = "Your target weight"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Label" unique_id=153802816]
+offset_left = 99.0
+offset_top = 272.0
+offset_right = 295.0
+offset_bottom = 386.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 16
+text = "Your current weight"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="Label" unique_id=1898492556]
+offset_left = 125.0
+offset_top = 168.0
+offset_right = 321.0
+offset_bottom = 282.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 16
+text = "Your maximum number of weights (do not exceed this limit)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Label" unique_id=1062760138]
+offset_left = 805.0
+offset_top = 78.0
+offset_right = 1001.0
+offset_bottom = 192.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 16
+text = "This is where you place all your weights."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [connection signal="body_entered" from="Objects/Area2D" to="Objects/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Objects/Area2D" to="Objects/Area2D" method="_on_body_exited"]
 [connection signal="body_entered" from="Objects/goat_area" to="Objects/goat_area" method="_on_body_entered"]

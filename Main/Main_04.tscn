@@ -116,7 +116,7 @@ position = Vector2(640, 704)
 texture = ExtResource("2_mkxky")
 
 [node name="BackgroundSolidDirt4" type="Sprite2D" parent="Background" unique_id=178354475]
-position = Vector2(896, 704)
+position = Vector2(914, 694)
 texture = ExtResource("2_mkxky")
 
 [node name="BackgroundSolidCloud" type="Sprite2D" parent="Background" unique_id=2045765605]
@@ -506,18 +506,13 @@ marker_object = NodePath("../all_markers/Marker2D5")
 
 [node name="Objects6" parent="Objects" unique_id=575398844 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_dtsm5")]
 position = Vector2(750, 60)
-type = 2
+type = 6
 marker_object = NodePath("../all_markers/Marker2D6")
 
 [node name="Objects7" parent="Objects" unique_id=699921370 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_dtsm5")]
 position = Vector2(750, 60)
-type = 6
-marker_object = NodePath("../all_markers/Marker2D7")
-
-[node name="Objects8" parent="Objects" unique_id=1674339010 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_dtsm5")]
-position = Vector2(750, 60)
 type = 7
-marker_object = NodePath("../all_markers/Marker2D8")
+marker_object = NodePath("../all_markers/Marker2D7")
 
 [node name="Area2D" type="Area2D" parent="Objects" unique_id=643345649]
 position = Vector2(913, 384)

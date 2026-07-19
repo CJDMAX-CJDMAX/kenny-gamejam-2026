@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dvevgjqi5g6of"]
 
 [ext_resource type="Texture2D" uid="uid://dg5saflgli28j" path="res://art/assets/Sprites/Backgrounds/Default/background_color_mushrooms.png" id="1_d3r6l"]
+[ext_resource type="Script" uid="uid://bqxm1asaqgeyx" path="res://Main/main.gd" id="1_efctk"]
 [ext_resource type="Texture2D" uid="uid://dsdfbt058fwt3" path="res://art/assets/Sprites/Backgrounds/Default/background_solid_dirt.png" id="2_fayjp"]
 [ext_resource type="Texture2D" uid="uid://be58yvy1hco4h" path="res://art/assets/Sprites/Backgrounds/Default/background_solid_cloud.png" id="3_j2iu7"]
 [ext_resource type="Texture2D" uid="uid://dtodgys52rjpx" path="res://art/assets/Sprites/Tiles/Default/terrain_dirt_block_bottom_right.png" id="5_ggtbl"]
@@ -77,6 +78,7 @@ size = Vector2(193, 639.25)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Main" type="Node2D" unique_id=746216825]
+script = ExtResource("1_efctk")
 
 [node name="Background" type="Node2D" parent="." unique_id=1232458204]
 
@@ -585,6 +587,39 @@ texture = ExtResource("28_dr2ar")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1115483688]
 stream = ExtResource("31_5tndj")
-volume_db = -10.0
+
+[node name="Label2" type="Label" parent="." unique_id=190241378]
+visible = false
+z_index = 1
+offset_left = 82.0
+offset_top = 205.0
+offset_right = 447.0
+offset_bottom = 267.0
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 54
+theme_override_styles/normal = SubResource("StyleBoxFlat_o8qko")
+text = "YOU WIN!!!!"
+
+[node name="ButtonSquareDepthFlat(2)2" type="Sprite2D" parent="Label2" unique_id=1218999096]
+z_as_relative = false
+position = Vector2(59, 34)
+texture = ExtResource("17_d1bft")
+
+[node name="ButtonSquareDepthFlat2" type="Sprite2D" parent="Label2" unique_id=849249699]
+z_index = -1
+position = Vector2(196, 34)
+texture = ExtResource("15_qfrgw")
+
+[node name="Label3" type="Label" parent="Label2" unique_id=1734663090]
+z_index = 1
+layout_mode = 0
+offset_left = -62.0
+offset_top = -192.0
+offset_right = 468.0
+offset_bottom = -130.0
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_o8qko")
+text = "Thank you for playing!!!"
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

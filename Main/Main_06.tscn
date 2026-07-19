@@ -428,9 +428,9 @@ shape = SubResource("RectangleShape2D_uhfj1")
 
 [node name="Ui" type="Node2D" parent="." unique_id=225842226]
 script = ExtResource("14_f5k35")
-goat = 16
-lock = 6
-now_rate = 2
+goat = 28
+lock = 7
+now_rate = 6
 
 [node name="goat" type="Sprite2D" parent="Ui" unique_id=1253284623]
 position = Vector2(80.00001, 80.00001)
@@ -512,7 +512,7 @@ marker_object = NodePath("../all_markers/Marker2D6")
 
 [node name="Objects7" parent="Objects" unique_id=699921370 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_xefff")]
 position = Vector2(750, 60)
-type = 5
+type = 2
 marker_object = NodePath("../all_markers/Marker2D7")
 
 [node name="Objects8" parent="Objects" unique_id=1674339010 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_xefff")]

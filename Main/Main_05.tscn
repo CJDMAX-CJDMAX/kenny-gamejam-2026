@@ -502,23 +502,18 @@ marker_object = NodePath("../all_markers/Marker2D4")
 
 [node name="Objects5" parent="Objects" unique_id=2141240754 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_aowtx")]
 position = Vector2(750, 60)
-type = 1
+type = 2
 marker_object = NodePath("../all_markers/Marker2D5")
 
 [node name="Objects6" parent="Objects" unique_id=575398844 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_aowtx")]
 position = Vector2(750, 60)
-type = 2
+type = 5
 marker_object = NodePath("../all_markers/Marker2D6")
 
 [node name="Objects7" parent="Objects" unique_id=699921370 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_aowtx")]
 position = Vector2(750, 60)
 type = 5
 marker_object = NodePath("../all_markers/Marker2D7")
-
-[node name="Objects8" parent="Objects" unique_id=1674339010 node_paths=PackedStringArray("marker_object") instance=ExtResource("18_aowtx")]
-position = Vector2(750, 60)
-type = 5
-marker_object = NodePath("../all_markers/Marker2D8")
 
 [node name="Area2D" type="Area2D" parent="Objects" unique_id=643345649]
 position = Vector2(913, 384)
@@ -681,6 +676,18 @@ position = Vector2(1030, 550)
 
 [node name="Marker2D48" type="Marker2D" parent="Objects/all_markers" unique_id=1057411065]
 position = Vector2(1100, 550)
+
+[node name="Label" type="Label" parent="." unique_id=947472602]
+offset_left = 783.0
+offset_top = -9.0
+offset_right = 1068.0
+offset_bottom = 612.0
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 16
+text = "When you have two or more identical special weights, there is something you should know: perhaps they only count as the weight of ordinary weights?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="body_entered" from="Objects/Area2D" to="Objects/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Objects/Area2D" to="Objects/Area2D" method="_on_body_exited"]
