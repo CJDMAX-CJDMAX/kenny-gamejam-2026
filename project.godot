@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="kenny gamejam 2026"
-run/main_scene="uid://dpifr0ivgmpiv"
+run/main_scene="uid://dvevgjqi5g6of"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,8 +22,7 @@ Transition="*uid://pgtu7vjs47p4"
 [display]
 
 window/size/mode=3
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/mode="viewport"
 mouse_cursor/custom_image="uid://vppoxutqln5o"
 
 [gui]
@@ -36,4 +35,5 @@ theme/custom_font="uid://drcwf80t0w1fi"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=2
 rendering_device/driver.windows="d3d12"

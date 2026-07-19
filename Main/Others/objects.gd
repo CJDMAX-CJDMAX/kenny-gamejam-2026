@@ -84,6 +84,7 @@ func start_drag(mouse_pos: Vector2) -> void:
 		return_tween.kill()
 	modulate.a = 1.0
 	dragging = true
+	$AudioStreamPlayer.play()
 	current_state = ObjectState.DRAGGING
 	$Label.visible = true
 	grab_offset = mouse_pos - global_position
